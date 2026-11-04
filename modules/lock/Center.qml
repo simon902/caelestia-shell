@@ -14,7 +14,6 @@ ColumnLayout {
 
     Layout.preferredWidth: centerWidth
     Layout.fillWidth: false
-    Layout.fillHeight: true
 
     spacing: Tokens.spacing.largeIncreased
 
