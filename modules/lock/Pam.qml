@@ -124,7 +124,8 @@ Scope {
         id: fprint
 
         config: "fprint"
-        availCommand: ["sh", "-c", "fprintd-list $USER"]
+        // fprintd-list also succeeds without enrolled fingers (or with just a reader), so require an actual fingerprint
+        availCommand: ["sh", "-c", "fprintd-list \"$USER\" 2>/dev/null | grep -q '^ - #[0-9]'"]
         retryOnFail: true
         enabled: GlobalConfig.lock.enableFprint
         maxTries: GlobalConfig.lock.maxFprintTries
